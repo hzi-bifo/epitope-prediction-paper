@@ -9,7 +9,7 @@ Data and results for the EpitopeVec article by Bahai et al., in review.
   git clone https://github.com/hzi-bifo/hcv-mds 
   ```
 * **```Python 3```** with the following packages:
-    * **numpy 1.16.4**
+    * **numpy 1.17.1**
     
  ## Usage
 Run the read_prediction.py file with the pickle file as an argument. Each folder contains the results for each dataset with their respective pickle file.
