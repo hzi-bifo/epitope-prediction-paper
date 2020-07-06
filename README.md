@@ -1,5 +1,5 @@
 #  “EpitopeVec:   LinearEpitope   Prediction   Using   DeepProtein   Sequence   Embeddings“
-Data and results for the EpitopeVec article by Bahai et al., in review.
+Data,sscripts and results for the EpitopeVec article by Bahai et al., in review.
 
   The epitope-prediction software is available at https://github.com/hzi-bifo/epitope-prediction
 
@@ -16,4 +16,4 @@ Run the read_prediction.py file with the pickle file as an argument. Each folder
        
        python3 read_prediction.py ./ABCPred/abcpred.pickle
       
-The results with acuracy, precision, recall, ROC metrics etc. will be displayed.
+The results with accuracy, precision, recall, ROC metrics etc. will be displayed.
