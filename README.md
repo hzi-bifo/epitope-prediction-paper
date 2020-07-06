@@ -14,6 +14,6 @@ Data and results for the EpitopeVec article by Bahai et al., in review.
  ## Usage
 Run the read_prediction.py file with the pickle file as an argument. Each folder contains the results for each dataset with their respective pickle file.
        
-       python3 read_prediction.py ./abcpred.pickle
+       python3 read_prediction.py ./ABCPred/abcpred.pickle
       
 The results with acuracy, precision, recall, ROC metrics etc. will be displayed.
