@@ -6,7 +6,7 @@ Data and results for the EpitopeVec article by Bahai et al., in review.
 ## Requirements
 * Clone this repository:
   ```
-  git clone https://github.com/hzi-bifo/hcv-mds 
+  git clone https://github.com/hzi-bifo/epitope-prediction-paper
   ```
 * **```Python 3```** with the following packages:
     * **numpy 1.17.1**
