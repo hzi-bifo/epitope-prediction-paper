@@ -54,6 +54,6 @@ For training domain-specific models, all the epitope petides should also be from
 
 ## Output
 
-* Training a new model will create two pickle files in the **model** folder. The **model.pickle** is the newly trained model which can be used with the EpitopeVec tool (https://github.com/hzi-bifo/epitope-prediction) for testing and **scaling.pickle** for scaling the new data being tested.
+* Training a new model will create two pickle files in the **model** folder. The **model.pickle** is the newly trained model which can be used with the EpitopeVec software (https://github.com/hzi-bifo/epitope-prediction) for testing and **scaling.pickle** for scaling the new data being tested.
 
 * Running **read_prediction** file will dipslay the name of the metric and the corresponding values for the dataset corresponding to the input file.
