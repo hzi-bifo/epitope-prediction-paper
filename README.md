@@ -57,11 +57,3 @@ For training domain-specific models, all the epitope petides should also be from
 * Training a new model will create two pickle files in the **model** folder. The **model.pickle** is the newly trained model which can be used with the EpitopeVec tool (https://github.com/hzi-bifo/epitope-prediction) for testing and **scaling.pickle** for scaling the new data being tested.
 
 * Running **read_prediction** file will dipslay the name of the metric and the corresponding values for the dataset corresponding to the input file.
-  
-
-
-Run the read_prediction.py file with the pickle file as an argument. Each folder contains the results for each dataset with their respective pickle file.
-       
-       python3 read_prediction.py ./ABCPred/abcpred.pickle
-      
-The results with accuracy, precision, recall, ROC metrics etc. will be displayed.
