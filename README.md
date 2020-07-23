@@ -48,7 +48,7 @@ Data,scripts and results for the EpitopeVec article by Bahai et al., in review.
 ## Input
 
 * For training a new model, two files containing a list of confirmed positive and negative epitopes are needed. These can be .txt files with each line containing a peptide. eg: In the **ABCPred** folder **abcpred_pos_20mer.txt** contains a list of petides which are epitopes and **abcpred_neg_20mer.txt** contains non-epitopes.  
-For training domain-specific models, all the epitope petides should also be from the specific domain. eg: If one wants a viral-specific model, only include epitopes derived from vural proteins.
+For training domain-specific models, all the epitope petides should also be from the specific domain. eg: If one wants a viral-specific model, only include epitopes derived from viral proteins.
 
 * Each dataset contains a **.pickle** file. These pickle files will reproduce the results mentioned in the paper on running them with the **read_prediction** file.
 
