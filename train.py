@@ -67,6 +67,58 @@ def readAAT(file):  #read AAT features from the AAT textfile
     except:
         print("Error in reading AAT feature file. Please make sure that the AAT file is correctly formatted")
         sys.exit()
+        
+def calculate_aat_scale(poslines, neglines, reduce):
+    poscount = {}
+    negcount = {}
+    for i in ['A', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L',
+              'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'Y']:
+        for j in ['A', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L',
+                  'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'Y']:
+            for k in ['A', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L',
+                      'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'Y']:
+                poscount[i + j + k] = 1
+                negcount[i + j + k] = 1
+    postotal = 8000
+    for l in poslines:
+        seq = l.strip()
+        for i in range(0, len(l) - 3):
+            tp = seq[i: i + 3].upper()
+            if 'X' in tp.upper():
+                continue
+            try:
+                poscount[tp] = poscount[tp] + 1
+                postotal = postotal + 1
+            except KeyError:
+                continue
+    print(poscount)
+    negtotal = 8000
+    seq = ''
+    seqcount = 0
+    for line in range(1, len(neglines)):
+        seq = seq + neglines[line].strip()
+        if neglines[line][0] == '>' or (line == len(neglines) - 1):
+            seqcount += 1
+            seq = seq.split('>')[0].upper()
+            for i in range(0, len(seq) - 3):
+                tp = seq[i: i + 3]
+                if 'X' in tp.upper():
+                    continue
+                try:
+                    negcount[tp] = negcount[tp] + 1
+                    negtotal = negtotal + 1
+                except KeyError:
+                    continue
+            seq = ''
+            continue
+    aatscale = {}
+    for i in poscount.keys():
+        try:
+            aatscale[i] = (poscount[i] / postotal) / (negcount[i] / negtotal)
+        except KeyError:
+            continue
+
+    return aatscale
 
 
 def aap(pep, aapdic, avg):  #return AAP features for the peptides
