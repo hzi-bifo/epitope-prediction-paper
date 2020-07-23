@@ -1,4 +1,4 @@
-#  "EpitopeVec:   LinearEpitope   Prediction   Using   DeepProtein   Sequence   Embeddings"
+#  EpitopeVec:   LinearEpitope   Prediction   Using   DeepProtein   Sequence   Embeddings
 Data,scripts and results for the EpitopeVec article by Bahai et al., in review.
 
   The epitope-prediction software is available at https://github.com/hzi-bifo/epitope-prediction
