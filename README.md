@@ -32,6 +32,7 @@ Data,scripts and results for the EpitopeVec article by Bahai et al., in review.
  cd protvec
  wget http://deepbio.info/embedding_repo/sp_sequences_4mers_vec.txt
  wget http://deepbio.info/embedding_repo/sp_sequences_4mers_vec.txt.bin -O sp_sequences_4mers_vec.bin
+ ```
     
 ## Usage
  
