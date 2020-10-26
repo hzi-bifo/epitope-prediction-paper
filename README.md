@@ -26,7 +26,12 @@ Data,scripts and results for the EpitopeVec article by Bahai et al., in review.
     pip3 install pydpi.tar.gz
     ```
    
- * Binary file for ProtVec representation of proteins. It can be downloaded from https://drive.google.com/drive/folders/1Y3PgFzUwCKu7Jzn0XSwd7UaBmDkXpTBZ?usp=sharing and then it should be put in the ```protvec``` folder.
+ * Binary file for ProtVec representation of proteins can be downloaded using the following command in the ```protvec``` directory:
+ 
+ ```
+ cd protvec
+ wget http://deepbio.info/embedding_repo/sp_sequences_4mers_vec.txt
+ wget http://deepbio.info/embedding_repo/sp_sequences_4mers_vec.txt.bin -O sp_sequences_4mers_vec.bin
     
 ## Usage
  
