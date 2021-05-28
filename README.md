@@ -1,5 +1,5 @@
 #  EpitopeVec:   LinearEpitope   Prediction   Using   DeepProtein   Sequence   Embeddings
-Data,scripts and results for the EpitopeVec article by Bahai et al., in review.
+Data, scripts and results for the EpitopeVec article by Bahai et al., in review.
 
   The epitope-prediction software is available at https://github.com/hzi-bifo/epitope-prediction
 
@@ -56,10 +56,7 @@ Data,scripts and results for the EpitopeVec article by Bahai et al., in review.
 * For training a new model, two files containing a list of confirmed positive and negative epitopes are needed. These can be .txt files with each line containing a peptide. eg: In the **ABCPred** folder **abcpred_pos_20mer.txt** contains a list of petides which are epitopes and **abcpred_neg_20mer.txt** contains non-epitopes.  
 For training domain-specific models, all the epitope petides should also be from the specific domain. eg: If one wants a viral-specific model, only include epitopes derived from viral proteins.
 
-* Each dataset contains a **.pickle** file. These pickle files will reproduce the results mentioned in the paper on running them with the **read_prediction** file.
 
 ## Output
 
-* Training a new model will create two pickle files in the **model** folder. The **model.pickle** is the newly trained model which can be used with the EpitopeVec software (https://github.com/hzi-bifo/epitope-prediction) for testing and **scaling.pickle** for scaling the new data being tested.
-
-* Running **read_prediction** file will dipslay the name of the metric and the corresponding values for the dataset corresponding to the input file.
+* Training a new model will create a pickle file in the **model** folder. The **modelname.pickle** is the newly trained model which can be used with the EpitopeVec software (https://github.com/hzi-bifo/epitope-prediction) for testing.
