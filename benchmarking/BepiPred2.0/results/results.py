@@ -1,17 +1,17 @@
+#view the results
+#Usage: python results.py resultfile
+
 import pandas as pd
 import sys
 from sklearn.metrics import accuracy_score, roc_auc_score as roc, auc, classification_report,balanced_accuracy_score, matthews_corrcoef as mcc
 df = pd.read_csv(sys.argv[1], header=None, sep=',',)
-for col in df.columns:
-    print(col)
-print(df[3])
 y_true = df[2]
 y_pred = df[3]
 y_predprob = df[4]
 #print(y_test)
-print(accuracy_score(y_true, y_pred))
-print(balanced_accuracy_score(y_true, y_pred))
+print("Accuracy:",accuracy_score(y_true, y_pred))
+print("Balanced accuracy:",balanced_accuracy_score(y_true, y_pred))
 #print(auc(y_true, y_predprob))
 print(classification_report(y_true, y_pred))
-print(mcc(y_true, y_pred))
-print(roc(y_true, y_predprob))
+print("MCC:",mcc(y_true, y_pred))
+print("ROC_AUC:",roc(y_true, y_predprob))
