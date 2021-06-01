@@ -13,7 +13,7 @@ Data, scripts and results for the EpitopeVec article by Bahai et al., in review.
     * **pydpi 1.0**
     * **biopython 1.71.0**
     * **tqdm 4.15.0**
-    * **gensim 2.3.0**
+    * **gensim 3.8.3**
     
    
   If these are not installed, you can install them with ``` pip ```. 
