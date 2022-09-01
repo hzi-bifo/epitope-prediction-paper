@@ -376,10 +376,14 @@ def gridsearch(x, y, cv):
                 'precision_macro': 'precision_macro', 'recall_macro': 'recall_macro',
                 'recall_micro': 'recall_micro', 'f1_macro': 'f1_macro', 'f1_micro': 'f1_micro'}
     grid_search = GridSearchCV(SVC(kernel='rbf', probability=True),
-                               param_grid={'C': [1000, 500, 250, 100, 50, 25, 1, 0.1,
-                                                 0.01, 0.001, 0.0001],
-                                           'gamma': [100, 10, 1, 0.1, 0.01, 0.001, 0.0001]},
-                               scoring=scoring, cv=cv, n_jobs=40, refit='auc_score',verbose=2)
+                               param_grid={'C': [1000, 500, 200, 100, 50,
+                                                 20, 10, 2, 1, 0.2, 0.5,
+                                                 0.01, 0.02, 0.05, 0.001],
+                                           'gamma': [1000, 500, 200, 100,
+                                                     50, 20, 10, 5, 2, 1,
+                                                     0.2, 0.5, 0.01, 0.02,
+                                                     0.05, 0.001, 0.0001]},
+                               scoring=scoring, cv=cv, n_jobs=-1, refit='auc_score',verbose=2)
     grid_search.fit(x, y)
     return grid_search
 
@@ -435,15 +439,15 @@ def train(peptides, features, target, pickle_info, dataset, savename):
     y = np.array(target)
     cv = StratifiedKFold(n_splits=5)
     model = gridsearch(x, y, cv)
-    aapdic = readAAP("./training/"+dataset+"/aap-general.txt.normal")
-    aatdic = readAAP("./training/"+dataset+"/aat-general.txt.normal")
+    aapdic = readAAP("./retraining/"+dataset+"/aap-general.txt.normal")
+    aatdic = readAAP("./retraining/"+dataset+"/aat-general.txt.normal")
     pickle_info ['aap'] = aapdic
     pickle_info ['aat'] = aatdic
     pickle_info ['scaling'] = scaling
     pickle_info ['model'] = model
     pickle_info ['training_features'] = features
     pickle_info ['training_targets'] = y
-    pickle.dump(pickle_info, open("./retraining/"+dataset+"/svm-"+dataset+savename+".pickle", "wb"))
+    pickle.dump(pickle_info, open("./retraining/"+dataset+"/svm-"+dataset+".pickle", "wb"))
     print("Best parameters: ", model.best_params_)
     print("Best accuracy: :", model.best_score_)
     results = model.cv_results_
@@ -491,8 +495,7 @@ def scoremodel(file, mlfile):
 
 if __name__ == "__main__":
     dataset = sys.argv[1]
-    savename = sys.argv[2]
-    pos, neg = readpeptides("./training/"+dataset+"/pos.txt",
-                            "./training/"+dataset+"/neg.txt")
+    pos, neg = readpeptides("./retraining/"+dataset+"/pos.txt",
+                            "./retraining/"+dataset+"/neg.txt")
     #print(pos, neg)
     run_training(pos, neg, dataset, savename)
